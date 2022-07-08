@@ -14,6 +14,7 @@
 		padding: 0 1rem;
 		background-color: var(--bg);
 		cursor: pointer;
+		@include animate;
 
 		&:first-child {
 			float: left;
@@ -24,7 +25,9 @@
 		}
 
 		&:hover {
-			color: hue-rotate(90deg);
+			background-color: var(--text);
+			color: var(--bg);
+			transform: scale(1.2);
 		}
 	}
 	@include tablet {
