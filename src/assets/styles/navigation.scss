@@ -22,6 +22,10 @@
 		&:only-child, &:last-child {
 			float: right;
 		}
+
+		&:hover {
+			color: hue-rotate(90deg);
+		}
 	}
 	@include tablet {
 		bottom: -1.5rem;

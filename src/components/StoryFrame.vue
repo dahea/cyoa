@@ -2,9 +2,9 @@
   <div class="frame">
     <div class="page-number">{{pageNumber}}</div>
     <h1>{{ title }}</h1>
-    <div class="copy-wrapper">
-      <img v-if="img" :src="require(`@/assets/${img}`)" />
+    <div class="copy-wrapper" :class="`${img ? 'support-img' : ''}`">
       <div class="copy" v-html="body"></div>
+      <img v-if="img" :src="require(`@/assets/${img}`)" />
     </div>
     <StoryNavigation v-if="buttons" :buttons="buttons"/>
     

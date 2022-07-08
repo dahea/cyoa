@@ -32,27 +32,40 @@
 
         .copy-wrapper {
             margin: var(--spacing-lg);
+
+            &.support-img {
+                display: flex;
+                flex-direction: column-reverse;
+
+                .copy {
+                }
+
+                img {
+                }
+            }
         }
 
     }
 
-    @include tablet {
+    @include desktop {
         display: grid;
         grid-template-columns: repeat(14, 1fr);
         padding: 0;
         width: 100%;
         min-height: inherit;
+        grid-template-rows: 6rem auto 6rem;
         
         .frame {
             padding: 0;
-            margin: (calc(2*var(--spacing-lg)) 0);
-            min-height: calc(100vh - 4*var(--spacing-lg));
+            margin: 0;
+            min-height: auto;
+            height: 100%;
             border: 1rem solid var(--text);
-            grid-column-start: 2;
-            grid-column-end: 14;
-
+            grid-column: 2 / 14;
+            grid-row: 2 / 2;
             display: grid;
             grid-template-columns: repeat(12, 1fr);
+            grid-template-rows:  6rem auto 6rem 1fr 6rem;
 
             .page-number {
                 right: -1.25rem;
@@ -60,14 +73,36 @@
             }
 
             h1 {
-                grid-column: 1 / 12;
+                grid-column: 2 / 12;
+                grid-row: 2 / 2;
+                margin-bottom: 0;
             }
 
             .copy-wrapper {
-                grid-column: 3 / 11;
+                padding: 0;
+                margin: 0;
+                grid-column: 3/11;
+                grid-row: 4 / 5;
                 columns: 2;
                 column-gap: 15%;
-                padding: 0;
+
+                &.support-img {
+                    flex-direction: row;
+                    align-items: center;
+    
+                    .copy {
+                        width: 50%;
+                    }
+    
+                    img {
+                        width: 50%;
+                    }
+                }
+            }
+
+            img {
+                width: 100%;
+                max-width: unset;
                 margin: 0;
             }
         }
