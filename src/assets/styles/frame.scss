@@ -5,6 +5,8 @@
 	padding: var(--spacing-lg);
 	position: relative;
 
+   
+
     .frame {
         position: relative;
         padding: var(--spacing-lg);
@@ -45,6 +47,21 @@
             }
         }
 
+    }
+
+    &.loading {
+        background-color: #FFC100;
+        .frame {
+            color: #FFC100;
+            background: #916F04;
+            border-color: #916F04;
+            display: flex;
+            align-items: center;
+
+            h1 {
+                margin: 0 auto
+            }
+        }
     }
 
     @include desktop {

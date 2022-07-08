@@ -9,10 +9,3 @@ export default {
   name: 'LoadingFrame',
 }
 </script>
-
-<style scoped>
-.frame {
-  background: #FFC100;
-  color: #916F04;
-}
-</style>

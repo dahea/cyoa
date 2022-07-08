@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="frame-wrapper">
+    <div class="frame-wrapper" :class="`${loading ? 'loading' : ''}`">
     <LoadingFrame v-if="loading" />
     <StoryFrame v-else :pageNumber="currentFrame+1" :title="storyBoard[currentFrame].title" :body="storyBoard[currentFrame].body" :img="storyBoard[currentFrame].img" :buttons="storyBoard[currentFrame].buttons"/>
     </div>
