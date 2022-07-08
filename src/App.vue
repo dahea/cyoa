@@ -2,7 +2,7 @@
   <div id="app">
     <div class="frame-wrapper" :class="`${loading ? 'loading' : ''}`">
     <LoadingFrame v-if="loading" />
-    <StoryFrame v-else :pageNumber="currentFrame+1" :title="storyBoard[currentFrame].title" :body="storyBoard[currentFrame].body" :img="storyBoard[currentFrame].img" :buttons="storyBoard[currentFrame].buttons"/>
+    <StoryFrame v-else :pageNumber="currentFrame+1" :title="storyBoard.title" :body="storyBoard.body" :img="storyBoard.img" :buttons="storyBoard.buttons"/>
     </div>
   </div>
 </template>
@@ -10,7 +10,8 @@
 <script>
 import StoryFrame from './components/StoryFrame.vue'
 import LoadingFrame from './components/LoadingFrame.vue'
-import storyData from "./assets/data/story.json";
+import axios from 'axios'
+
 
 export default {
   name: 'App',
@@ -21,28 +22,37 @@ export default {
   data() {
     return {
 			loading:true,
-      storyBoard: [],
+      storyBoard: {},
       currentFrame: 0,
 		}
   },
   beforeMount: function() {
-      this.storyBoard = storyData.frames
-  },
+    },
   mounted: function(){
       this.loading = false,
       this.root = document.documentElement;
-      this.updateCss();
+      this.updateFrame(this.currentFrame);
   },
   methods: {
-    updateCss: function(){
-      this.root.style.setProperty("--bg", this.storyBoard[this.currentFrame].colors.bg);
-      this.root.style.setProperty("--text", this.storyBoard[this.currentFrame].colors.text);
+    updateFrame: async function(frameIndex) {
+      this.loading = true;
+      try {
+        const res = await axios.get(`http://localhost:3000/frames`);
+        this.storyBoard = res.data[frameIndex];
+        this.updateCss();
+        this.loading = false;
+      } catch (error) {
+        console.log(error);
+      }
     },
-    updateFrame: function(newFrameIndex){
+    updateCss: function(){
+      this.root.style.setProperty("--bg", this.storyBoard.colors.bg);
+      this.root.style.setProperty("--text", this.storyBoard.colors.text);
+    },
+    getNewFrameIndex: function(newFrameIndex){
       this.currentFrame = newFrameIndex;
-      this.updateCss()
+      this.updateFrame(newFrameIndex);
     }
   }
-  
 }
 </script>
