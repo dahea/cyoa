@@ -1,28 +1,48 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="frame-wrapper">
+    <LoadingFrame v-if="loading" />
+    <StoryFrame v-else :pageNumber="currentFrame+1" :title="storyBoard[currentFrame].title" :body="storyBoard[currentFrame].body" :img="storyBoard[currentFrame].img" :buttons="storyBoard[currentFrame].buttons"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import StoryFrame from './components/StoryFrame.vue'
+import LoadingFrame from './components/LoadingFrame.vue'
+import storyData from "./assets/data/story.json";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    StoryFrame,
+    LoadingFrame
+  },
+  data() {
+    return {
+			loading:true,
+      storyBoard: [],
+      currentFrame: 0,
+		}
+  },
+  beforeMount: function() {
+      this.storyBoard = storyData.frames
+  },
+  mounted: function(){
+      this.loading = false,
+      this.root = document.documentElement;
+      this.updateCss();
+  },
+  methods: {
+    updateCss: function(){
+      this.root.style.setProperty("--bg", this.storyBoard[this.currentFrame].colors.bg);
+      this.root.style.setProperty("--text", this.storyBoard[this.currentFrame].colors.text);
+    },
+    updateFrame: function(newFrameIndex){
+      this.currentFrame = newFrameIndex;
+      this.updateCss()
+    }
   }
+  
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

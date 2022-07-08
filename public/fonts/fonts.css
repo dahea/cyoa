@@ -1,0 +1,21 @@
+@font-face {
+	font-family: "Sans";
+	src: url("otf/sans-black.otf") format("otf"),
+		 url("woff/sans-black.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Mono";
+	src: url("otf/mono-regular.otf") format("otf"),
+		 url("woff/mono-regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Mono";
+	src: url("otf/mono-black.otf") format("otf"),
+		 url("woff/mono-black.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+}

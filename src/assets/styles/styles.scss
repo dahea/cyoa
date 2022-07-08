@@ -1,0 +1,58 @@
+@import '@/assets/styles/_variables.scss';
+@import '@/assets/styles/_mixins.scss';
+
+:root {
+	--bg: white;
+	--text: black;
+	--spacing-lg: 2rem;
+}
+  
+body {
+	background-color: var(--bg);
+	color: var(--text);
+	font-family: 'Mono';
+	font-size: 16px;
+}
+
+h1 {
+	font-family: 'Sans';
+	text-transform: uppercase;
+	font-size: 2rem;
+	line-height: 1;
+	letter-spacing: .15rem;
+	margin-bottom: var(--spacing-lg);
+	text-align: center;
+}
+
+p {
+	font-size: 0.8125rem;
+	line-height: 1.46rem;
+	margin-bottom: 1.46rem;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+b {font-weight: bold;}
+
+
+@include tablet {
+	h1 {
+		font-size: 2.75rem;
+		letter-spacing: .1rem;
+	}
+}
+
+@include desktop { 
+
+	#app {
+		width: 100%;
+		min-height: 100vh;
+	}
+
+	h1 {
+		font-size: 3.75rem;
+		letter-spacing: .38rem;
+	}
+}
