@@ -7,7 +7,7 @@
 
    
 
-    .frame {
+    .frame, .loading-frame {
         position: relative;
         padding: var(--spacing-lg);
         border: .5rem solid var(--text);
@@ -49,7 +49,7 @@
 
     }
 
-    &.loading {
+    .loading-frameg {
         background-color: #FFC100;
         .frame {
             color: #FFC100;
@@ -72,7 +72,7 @@
         min-height: inherit;
         grid-template-rows: 6rem auto 6rem;
         
-        .frame {
+        .frame, .loading-frame {
             padding: 0;
             margin: 0;
             min-height: auto;

@@ -1,5 +1,5 @@
 <template>
-  <div class="frame">
+  <div class="loading-frame">
     <h1>Loading</h1>
   </div>
 </template>

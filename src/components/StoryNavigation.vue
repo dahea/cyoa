@@ -11,7 +11,6 @@ export default {
   name: 'StoryNavigation',
   methods: {
     updateFrame: function(newFrameIndex){
-      console.log(newFrameIndex)
       this.$parent.$parent.getNewFrameIndex(newFrameIndex)
     }
   }

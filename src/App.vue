@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <div class="frame-wrapper" :class="`${loading ? 'loading' : ''}`">
-    <LoadingFrame v-if="loading" />
-    <StoryFrame v-else :pageNumber="currentFrame+1" :title="storyBoard.title" :body="storyBoard.body" :img="storyBoard.img" :buttons="storyBoard.buttons"/>
+    <transition name="fade-scale">
+      <LoadingFrame v-if="loading" />
+      <StoryFrame v-else :pageNumber="currentFrame+1" :title="storyBoard.title" :body="storyBoard.body" :img="storyBoard.img" :buttons="storyBoard.buttons" />
+    </transition>
     </div>
   </div>
 </template>
@@ -13,6 +15,7 @@ import LoadingFrame from './components/LoadingFrame.vue'
 
 export default {
   name: 'App',
+  el: '#app',
   components: {
     StoryFrame,
     LoadingFrame
