@@ -2,7 +2,7 @@
 @import '@/assets/styles/_mixins.scss';
 
 .frame-wrapper {
-	padding: var(--spacing-lg);
+	padding: var(--spacing);
 	position: relative;
 
     &.loading {
@@ -11,9 +11,9 @@
 
     .frame {
         position: relative;
-        padding: var(--spacing-lg);
+        padding: var(--spacing);
         border: .5rem solid var(--text);
-        min-height: calc(100vh - 2*var(--spacing-lg));
+        min-height: calc(100vh - 2*var(--spacing));
     }
 
     img {
@@ -21,7 +21,7 @@
         height: auto;
         opacity: 0.43;
         width: 50%;
-        margin: calc(2*var(--spacing-lg)) auto;
+        margin: calc(2*var(--spacing)) auto;
         display: block;
     }
 
@@ -36,7 +36,7 @@
     }
 
     .copy-wrapper {
-        margin: var(--spacing-lg);
+        margin: var(--spacing);
 
         &.support-img {
             display: flex;

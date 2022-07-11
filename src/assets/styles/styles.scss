@@ -4,7 +4,7 @@
 :root {
 	--bg: white;
 	--text: black;
-	--spacing-lg: 2rem;
+	--spacing: 2rem;
 }
   
 body {
@@ -20,7 +20,7 @@ h1 {
 	font-size: 2rem;
 	line-height: 1;
 	letter-spacing: .15rem;
-	margin-bottom: var(--spacing-lg);
+	margin-bottom: var(--spacing);
 	text-align: center;
 }
 
