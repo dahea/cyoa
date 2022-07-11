@@ -10,8 +10,6 @@
 <script>
 import StoryFrame from './components/StoryFrame.vue'
 import LoadingFrame from './components/LoadingFrame.vue'
-import axios from 'axios'
-
 
 export default {
   name: 'App',
@@ -37,8 +35,9 @@ export default {
     updateFrame: async function(frameIndex) {
       this.loading = true;
       try {
-        const res = await axios.get(`http://localhost:3000/frames`);
-        this.storyBoard = res.data[frameIndex];
+        const res = await fetch('http://localhost:3000/frames')
+          .then(response => response.json());
+        this.storyBoard = res[frameIndex];
         this.updateCss();
         this.loading = false;
       } catch (error) {
