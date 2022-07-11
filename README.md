@@ -15,8 +15,9 @@ Run the development server
 ```
 npm run serve
 ```
-In a separate console/terminal window, run the json server 
+In a separate console/terminal window, navigate into the project folder and run the json server 
 ```
+cd ./cyoa
 json-server story.json
 ```
 Visit `http://localhost:3000/frames` to view the response.
