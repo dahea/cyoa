@@ -1,5 +1,5 @@
 <template>
-  <div class="frame">
+  <div class="frame story-frame">
     <div class="page-number">{{pageNumber}}</div>
     <h1>{{ title }}</h1>
     <div class="copy-wrapper" :class="`${img ? 'support-img' : ''}`">

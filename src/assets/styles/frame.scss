@@ -5,62 +5,54 @@
 	padding: var(--spacing-lg);
 	position: relative;
 
-   
+    &.loading {
+        background-color: #FFC100;
+    }
 
-    .frame, .loading-frame {
+    .frame {
         position: relative;
         padding: var(--spacing-lg);
         border: .5rem solid var(--text);
         min-height: calc(100vh - 2*var(--spacing-lg));
-
-        img {
-            max-width: 360px;
-            height: auto;
-            opacity: 0.43;
-            width: 50%;
-            margin: calc(2*var(--spacing-lg)) auto;
-            display: block;
-        }
-
-        .page-number {
-            font-family: 'Sans';
-            font-size: 4rem;
-            position: absolute;
-            top: -1rem;	
-            right: -.75rem;
-            padding: 0 0 .5rem 1rem;
-            background-color: var(--bg);
-        }
-
-        .copy-wrapper {
-            margin: var(--spacing-lg);
-
-            &.support-img {
-                display: flex;
-                flex-direction: column-reverse;
-
-                .copy {
-                }
-
-                img {
-                }
-            }
-        }
-
     }
 
-    .loading-frameg {
-        background-color: #FFC100;
-        .frame {
-            color: #FFC100;
-            background: #916F04;
-            border-color: #916F04;
-            display: flex;
-            align-items: center;
+    img {
+        max-width: 360px;
+        height: auto;
+        opacity: 0.43;
+        width: 50%;
+        margin: calc(2*var(--spacing-lg)) auto;
+        display: block;
+    }
 
-            h1 {
-                margin: 0 auto
-            }
+    .page-number {
+        font-family: 'Sans';
+        font-size: 4rem;
+        position: absolute;
+        top: -1rem;	
+        right: -.75rem;
+        padding: 0 0 .5rem 1rem;
+        background-color: var(--bg);
+    }
+
+    .copy-wrapper {
+        margin: var(--spacing-lg);
+
+        &.support-img {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+    
+    .loading-frame {
+        color: #FFC100;
+        background: #916F04;
+        border-color: #916F04;
+        display: flex;
+        align-items: center;
+
+        h1 {
+            margin: 0 auto
         }
     }
 
@@ -71,57 +63,61 @@
         width: 100%;
         min-height: inherit;
         grid-template-rows: 6rem auto 6rem;
-        
-        .frame, .loading-frame {
+
+        .frame {
             padding: 0;
             margin: 0;
             min-height: auto;
             height: 100%;
-            border: 1rem solid var(--text);
             grid-column: 2 / 14;
             grid-row: 2 / 2;
+        }
+        
+        .story-frame {
+            border: 1rem solid var(--text);
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             grid-template-rows:  6rem auto 6rem 1fr 6rem;
 
-            .page-number {
-                right: -1.25rem;
-                font-size: 6.25rem;
-            }
+        }
 
-            h1 {
-                grid-column: 2 / 12;
-                grid-row: 2 / 2;
-                margin-bottom: 0;
-            }
+        .page-number {
+            right: -1.25rem;
+            font-size: 6.25rem;
+        }
 
-            .copy-wrapper {
-                padding: 0;
-                margin: 0;
-                grid-column: 3/11;
-                grid-row: 4 / 5;
-                columns: 2;
-                column-gap: 15%;
+        h1 {
+            grid-column: 2 / 12;
+            grid-row: 2 / 2;
+            margin-bottom: 0;
+        }
 
-                &.support-img {
-                    flex-direction: row;
-                    align-items: center;
-    
-                    .copy {
-                        width: 50%;
-                    }
-    
-                    img {
-                        width: 50%;
-                    }
+        .copy-wrapper {
+            padding: 0;
+            margin: 0;
+            grid-column: 3/11;
+            grid-row: 4 / 5;
+            columns: 2;
+            column-gap: 15%;
+
+            &.support-img {
+                flex-direction: row;
+                align-items: center;
+
+                .copy {
+                    width: 50%;
+                }
+
+                img {
+                    width: 50%;
                 }
             }
+        }
 
-            img {
-                width: 100%;
-                max-width: unset;
-                margin: 0;
-            }
+        img {
+            width: 100%;
+            max-width: unset;
+            margin: 0;
         }
     }
 }
